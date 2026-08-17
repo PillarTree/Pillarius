@@ -25,13 +25,13 @@ while IFS='|' read -r tag name published is_latest; do
         MB=$(( asize / 1048576 ))
         URL="https://github.com/${REPO}/releases/download/${tag}/${aname}"
         if [[ "$aname" == *.sha256 ]]; then
-            LINKS="${LINKS}<a class=\"asset sha\" href=\"${URL}\">checksum</a>\n"
+            LINKS+=$"          <a class=\"asset sha\" href=\"${URL}\">checksum</a>"$'\n'
         else
-            LINKS="${LINKS}<a class=\"asset\" href=\"${URL}\">${aname} (${MB} MB)</a>\n"
+            LINKS+=$"          <a class=\"asset\" href=\"${URL}\">${aname} (${MB} MB)</a>"$'\n'
         fi
     done <<< "$ASSETS"
 
-    BODY="${BODY}    <div class=\"release\">\n      <h2>${name}${BADGE}</h2>\n      <p class=\"date\">${DATE}</p>\n      <div class=\"assets\">\n${LINKS}      </div>\n    </div>\n"
+    BODY+=$'    <div class="release">\n      <h2>'"${name}${BADGE}"$'</h2>\n      <p class="date">'"${DATE}"$'</p>\n      <div class="assets">\n'"${LINKS}"$'      </div>\n    </div>\n'
 done <<< "$RELEASES"
 
 cat > "$OUT" << EOF
