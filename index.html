@@ -9,6 +9,16 @@
          font-family: "DejaVu Sans", sans-serif; }
   main { max-width: 760px; margin: 0 auto; }
   h1 { color: #89b4fa; }
+  .release { border: 1px solid #313244; border-radius: 8px; padding: 16px 20px; margin: 16px 0;
+             background: #181825; }
+  .release h2 { margin: 0 0 4px; font-size: 18px; }
+  .date { color: #6c7086; font-size: 13px; margin: 0 0 12px; }
+  .badge { background: #a6e3a1; color: #1e1e2e; font-size: 11px; border-radius: 10px;
+           padding: 2px 8px; vertical-align: middle; }
+  .assets { display: flex; flex-direction: column; gap: 6px; }
+  a.asset { color: #89b4fa; text-decoration: none; font-size: 14px; }
+  a.asset:hover { text-decoration: underline; }
+  a.sha { color: #6c7086; font-size: 12px; }
   footer { margin-top: 40px; color: #6c7086; font-size: 12px; }
 </style>
 </head>
@@ -18,9 +28,7 @@
   <p>Live ISO images of the Pillarius desktop environment.
      Variants: <strong>full</strong> (desktop apps, audio, bluetooth) and
      <strong>minimal</strong> (core Pillarius desktop).</p>
-  <p>Release ISOs are published on the
-     <a style="color:#89b4fa" href="https://github.com/PillarTree/Pillarius/releases">Releases</a>
-     page. Run <code>./publish.sh</code> to upload builds and refresh this page.</p>
+    <div class="release">\n      <h2>Pillarius pillarius-minimal-20260817-amd64.iso <span class="badge">latest</span></h2>\n      <p class="date">2026-08-17</p>\n      <div class="assets">\n<a class="asset" href="https://github.com/PillarTree/Pillarius/releases/download/pillarius-20260817-minimal/pillarius-minimal-20260817-amd64.iso">pillarius-minimal-20260817-amd64.iso (531 MB)</a>\n<a class="asset sha" href="https://github.com/PillarTree/Pillarius/releases/download/pillarius-20260817-minimal/pillarius-minimal-20260817-amd64.iso.sha256">checksum</a>\n      </div>\n    </div>\n    <div class="release">\n      <h2>Pillarius pillarius-full-20260817-amd64.iso</h2>\n      <p class="date">2026-08-17</p>\n      <div class="assets">\n<a class="asset" href="https://github.com/PillarTree/Pillarius/releases/download/pillarius-20260817-full/pillarius-full-20260817-amd64.iso">pillarius-full-20260817-amd64.iso (674 MB)</a>\n<a class="asset sha" href="https://github.com/PillarTree/Pillarius/releases/download/pillarius-20260817-full/pillarius-full-20260817-amd64.iso.sha256">checksum</a>\n      </div>\n    </div>\n
   <footer>Source: <a style="color:#89b4fa" href="https://github.com/PillarTree/Pillarius">PillarTree/Pillarius</a> &middot; Apt repo: <a style="color:#89b4fa" href="https://spacey32.github.io/pt-apt-repo/">pt-apt-repo</a></footer>
 </main>
 </body>
