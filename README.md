@@ -7,7 +7,7 @@ Download site and release ISOs for the Pillarius desktop environment.
 
 ## Publishing new ISOs
 
-Build with [Pillarius-live](https://github.com/PillarTree/pillarium-live) (or the
+Build with [Pillarius-live](https://github.com/PillarTree/Pillarius-live) (or the
 local `Pillarius-live` project), then:
 
 ```

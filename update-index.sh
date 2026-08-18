@@ -64,7 +64,10 @@ cat > "$OUT" << EOF
   <h1>Pillarius Downloads</h1>
   <p>Live ISO images of the Pillarius desktop environment.
      Variants: <strong>full</strong> (desktop apps, audio, bluetooth) and
-     <strong>minimal</strong> (core Pillarius desktop).</p>
+     <strong>minimal</strong> (core Pillarius desktop).
+     Each ISO also includes a Debian <strong>installer</strong>: boot and pick
+     <em>Install</em> (or <em>auto</em> for a fully automatic install) to install
+     Pillarius to disk. Installed user: <strong>user</strong> / password <strong>pillarius</strong>.</p>
 ${BODY}
   <footer>Source: <a style="color:#89b4fa" href="https://github.com/PillarTree/Pillarius">PillarTree/Pillarius</a> &middot; Apt repo: <a style="color:#89b4fa" href="https://spacey32.github.io/pt-apt-repo/">pt-apt-repo</a></footer>
 </main>

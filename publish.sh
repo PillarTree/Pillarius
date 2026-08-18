@@ -25,13 +25,19 @@ for iso in "${ISOS[@]}"; do
     echo "--- $name -> release $tag"
 
     if gh release view "$tag" --repo "$REPO" >/dev/null 2>&1; then
-        echo "release exists, uploading missing assets"
+        echo "release exists, uploading missing or changed assets"
         for asset in "$iso" "$iso.sha256"; do
             [ -f "$asset" ] || continue
             base=$(basename "$asset")
-            if ! gh release view "$tag" --repo "$REPO" --json assets \
-                --jq ".assets[] | select(.name == \"$base\")" >/dev/null 2>&1; then
+            local_sha=$(sha256sum "$asset" | cut -d' ' -f1)
+            remote_sha=$(gh api "repos/$REPO/releases/tags/$tag" \
+                --jq ".assets[] | select(.name == \"$base\") | .digest" 2>/dev/null | sed 's/^sha256://')
+            if [ -z "$remote_sha" ]; then
+                echo "uploading $base"
                 gh release upload "$tag" "$asset" --repo "$REPO"
+            elif [ "$local_sha" != "$remote_sha" ]; then
+                echo "asset changed ($remote_sha -> $local_sha), replacing $base"
+                gh release upload "$tag" "$asset" --repo "$REPO" --clobber
             fi
         done
     else
