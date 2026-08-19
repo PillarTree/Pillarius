@@ -45,7 +45,7 @@ for iso in "${ISOS[@]}"; do
         gh release create "$tag" "$iso" "$iso.sha256" \
             --repo "$REPO" \
             --title "Pillarius $name" \
-            --notes "Pillarius live ISO: $name
+            --notes "Pillarius ISO: $name
 
 SHA256: $(cat "$iso.sha256" | cut -d' ' -f1)"
     fi
